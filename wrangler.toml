@@ -1,0 +1,8 @@
+name = "multistyle-unified"
+main = "worker.js"
+compatibility_date = "2024-01-01"
+
+# Enable Static Asset Serving
+[assets]
+directory = "./"
+binding = "ASSETS"

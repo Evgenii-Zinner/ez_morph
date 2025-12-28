@@ -1,0 +1,148 @@
+/**
+ * --- ACID PUNK THEME (BRIGHT & DISTORTED) ---
+ * A raw, aggressive aesthetic featuring chromatic aberrations and "teleporting" glitches.
+ */
+
+.theme-punk {
+    /* Color Palette */
+    --bg-main: #000000;
+    --bg-card: #080808;
+    --nav-bg: #ff00ff;
+    --text-main: #ffffff;
+    --primary-color: #00ff41;
+    /* Toxic Green */
+    --secondary-color: #ff00ff;
+    /* Fuchsia */
+    --accent-color: #ffff00;
+    /* Warning Yellow */
+    --btn-text: #000;
+
+    /* Typography & Shape */
+    --font-heading: 'Bangers', cursive;
+    --font-body: 'Montserrat', sans-serif;
+    --radius: 0px;
+    --card-border: 4px solid var(--primary-color);
+    --shadow: 12px 12px 0px var(--secondary-color);
+}
+
+/* --- THEME SPECIFIC STYLES --- */
+
+/**
+ * 1. Teleporting Hero Title
+ * Multi-layer glitching animation with chromatic aberration
+ */
+.theme-punk .hero-title {
+    color: var(--primary-color);
+    text-shadow: 4px 4px 0px var(--secondary-color);
+    opacity: 1 !important;
+    position: relative;
+    display: inline-block;
+    animation: punk-teleport 0.4s steps(1) infinite;
+    font-size: clamp(2rem, 8vw, 4.5rem);
+    letter-spacing: -1px;
+}
+
+/**
+ * Chromatic Aberration Layers
+ * Pseudo-elements create offset red/blue versions of the text for a glitch effect
+ */
+.theme-punk .hero-title::before,
+.theme-punk .hero-title::after {
+    content: "I design digital FUTURES";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+}
+
+.theme-punk .hero-title::before {
+    color: #ff00ff;
+    z-index: -1;
+    animation: punk-teleport 0.3s steps(1) infinite reverse;
+    transform: translate(-4px, 2px);
+}
+
+.theme-punk .hero-title::after {
+    color: #00ffff;
+    z-index: -2;
+    animation: punk-teleport 0.5s steps(1) infinite;
+    transform: translate(4px, -2px);
+}
+
+@keyframes punk-teleport {
+    0% {
+        transform: translate(0, 0) skew(0deg);
+        clip-path: inset(0 0 0 0);
+    }
+
+    10% {
+        transform: translate(-5px, 2px) skew(5deg);
+        clip-path: inset(10% 0 80% 0);
+    }
+
+    15% {
+        transform: translate(5px, -2px) skew(-10deg);
+        clip-path: inset(80% 0 5% 0);
+    }
+
+    20% {
+        transform: translate(0, 0) skew(0deg);
+        clip-path: inset(0 0 0 0);
+    }
+
+    50% {
+        transform: translate(-2px, 5px);
+    }
+
+    52% {
+        transform: translate(20px, -10px) skew(20deg);
+        color: #ffff00;
+    }
+
+    54% {
+        transform: translate(0, 0) skew(0deg);
+    }
+
+    90% {
+        transform: translate(-10px, 0px) skew(-5deg);
+    }
+
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+/**
+ * 2. Glitch Text Stroke
+ * Raw, industrial font style for secondary title elements
+ */
+.theme-punk .hero-title span:not(.highlight) {
+    color: #fff;
+    -webkit-text-stroke: 1px var(--secondary-color);
+    font-style: italic;
+}
+
+.theme-punk .highlight {
+    color: var(--primary-color) !important;
+    text-transform: uppercase;
+    font-weight: 900;
+}
+
+/**
+ * 3. Brutalist Bento Boxes
+ * Sharp corners, thick borders, and aggressive dropshadows
+ */
+.theme-punk .content-block {
+    background: #000;
+    border: 4px solid var(--primary-color);
+    box-shadow: 12px 12px 0px var(--secondary-color);
+    transform: rotate(-1deg);
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.theme-punk .content-block:hover {
+    transform: rotate(0deg) scale(1.02);
+    border-color: #fff;
+}

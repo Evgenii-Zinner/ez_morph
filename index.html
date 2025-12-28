@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EZINNER // MULTISTYLE</title>
+    
+    <!-- Modern Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;700&family=Orbitron:wght@700&family=Fredoka:wght@400;600&family=Vibur&family=Playfair+Display:ital,wght@0,700;1,700&family=Bangers&family=Montserrat:wght@300;400;800&family=Lora:ital@0;1&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="logo.svg">
+
+    <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="theme-cyberpunk.css">
+    <link rel="stylesheet" href="theme-fairy.css">
+    <link rel="stylesheet" href="theme-glamour.css">
+    <link rel="stylesheet" href="theme-punk.css">
+    <link rel="stylesheet" href="theme-nature.css">
+    
+    <!-- You can enable analytics by uncommenting this and pasting your ID here 
+    <script async src="https://www.googletagmanager.com/gtag/js?id=c"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', '{YOUR GA ID}');
+    </script> -->
+</head>
+<body class="theme-cyberpunk">
+
+    <div class="dynamic-bg"></div>
+
+    <nav class="theme-switcher-pill">
+        <div class="pill-label">REALITY_SHIFT</div>
+        <div class="pill-buttons">
+            <button onclick="setTheme('theme-cyberpunk')" title="Cyberpunk">CBR</button>
+            <button onclick="setTheme('theme-fairy')" title="Fairy Pony">PNY</button>
+            <button onclick="setTheme('theme-glamour')" title="Glamour">GLM</button>
+            <button onclick="setTheme('theme-punk')" title="Acid Punk">PNK</button>
+            <button onclick="setTheme('theme-nature')" title="Nature">NTR</button>
+        </div>
+    </nav>
+
+    <header class="main-header">
+        <a href="https://ezinner.com" class="logo-wrap">
+            <span class="logo-line-1">EZINNER</span>
+            <span class="logo-line-2">SOLUTIONS</span>
+        </a>
+    </header>
+
+<main class="grid-container">
+    <section class="hero-section">
+<h2 class="hero-title">
+    <span class="highlight">I</span> design digital <span class="highlight">FUTURES</span>
+</h2>
+        <p class="hero-subtitle">High-performance static solutions for an evolving web landscape.</p>
+    </section>
+
+    <section class="content-grid">
+        <article class="content-block bento-large">
+            <div class="block-header">
+                <div class="accent-icon"></div>
+                <div class="status-pill">System_Active // 100%</div>
+            </div>
+            
+            <div class="block-body">
+                <div>
+                    <h3>The Static Edge</h3>
+                    <p>In an era of bloated frameworks and overly complex dependencies, I am returning to the structural purity of semantic HTML. By stripping away the unnecessary overhead of modern tech stacks, you can experience lightning-fast load times and inherently unhackable security through static simplicity</p>
+                </div>
+                
+                <ul class="spec-list">
+                    <li><strong>CORE:</strong> Pure HTML5 / CSS3</li>
+                    <li><strong>LOAD:</strong> < 0.8s LCP</li>
+                    <li><strong>AUTH:</strong> Zero-Database</li>
+                    <li><strong>HOST:</strong> Edge-Network</li>
+                </ul>
+            </div>
+            
+            <a href="#" class="cta-button">Initialize System</a>
+        </article>
+
+        <div class="bento-stack">
+            <article class="content-block bento-small">
+                <div class="accent-icon"></div>
+                <h3>Secure</h3>
+                <p>No databases. No vulnerabilities. Just pure code.</p>
+            </article>
+
+            <article class="content-block bento-small">
+                <div class="accent-icon"></div>
+                <h3>Fast</h3>
+                <p>Optimized for Google's Core Web Vitals.</p>
+            </article>
+        </div>
+
+            <article class="content-block bento-full">
+                <div class="accent-icon"></div>
+                <h3>Connect with the Future</h3>
+                <p>Ready to manifest a new digital reality? Send a secure transmission below.</p>
+                
+                <form id="contact-form" class="contact-form">
+                    <div class="form-row">
+                        <div class="input-wrap">
+                            <input type="text" name="name" placeholder="IDENTITY / NAME" required>
+                        </div>
+                        <div class="input-wrap">
+                            <input type="email" name="email" placeholder="ENCRYPTION / EMAIL" required>
+                        </div>
+                    </div>
+                    <div class="input-wrap">
+                        <textarea name="message" placeholder="TRANSMISSION DATA / MESSAGE..." rows="3" required></textarea>
+                    </div>
+                    <button type="submit" class="cta-button">Initiate Transfer</button>
+                    <div id="form-status" class="status-message"></div>
+                </form>
+            </article>
+        </section>
+
+        <footer class="main-footer">
+            <div class="footer-line"></div>
+            <p>&copy; 2025 // <a href="https://ezinner.com" class="footer-link">EVGENII ZINNER</a> // END_OF_LINE</p>
+        </footer>
+    </main>
+        <script>
+        function setTheme(themeName) {
+            document.body.className = themeName;
+            localStorage.setItem('user-theme', themeName);
+        }
+        window.onload = () => {
+            const savedTheme = localStorage.getItem('user-theme');
+            if (savedTheme) setTheme(savedTheme);
+        };
+
+        // Custom Worker Transmission Logic
+        const contactForm = document.getElementById('contact-form');
+        const formStatus = document.getElementById('form-status');
+
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const formData = new FormData(contactForm);
+            const data = Object.fromEntries(formData.entries());
+            
+            formStatus.textContent = 'ESTABLISHING CONNECTION...';
+            formStatus.className = 'status-message loading';
+
+            try {
+                const response = await fetch('/submit-form', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+
+                if (response.ok) {
+                    formStatus.textContent = 'TRANSMISSION SUCCESSFUL / MESSAGE SECURED';
+                    formStatus.className = 'status-message success';
+                    contactForm.reset();
+                } else {
+                    throw new Error('Link Unstable');
+                }
+            } catch (err) {
+                formStatus.textContent = 'TRANSMISSION FAILED / RETRY LATER';
+                formStatus.className = 'status-message error';
+            }
+        });
+    </script>
+</body>
+</html>

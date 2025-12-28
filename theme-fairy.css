@@ -1,0 +1,135 @@
+/**
+ * --- FAIRY & PONY THEME (BUBBLY & MAGICAL) ---
+ * A soft, pastel aesthetic with floating dust particles and glowing magical typography.
+ */
+
+.theme-fairy {
+    /* Color Palette */
+    --bg-main: #fff0f6;
+    /* Soft Strawberry Cream */
+    --bg-card: rgba(255, 255, 255, 0.7);
+    --nav-bg: rgba(255, 255, 255, 0.8);
+    --text-main: #5f3e4d;
+    /* Warm Cocoa */
+    --primary-color: #ff85a2;
+    /* Bubblegum Pink */
+    --secondary-color: #74c0fc;
+    /* Sky Blue */
+    --accent-color: #ffec99;
+    /* Magic Gold */
+    --btn-text: #fff;
+
+    /* Typography & Shape */
+    --font-heading: 'Vibur', cursive;
+    --font-body: 'Fredoka', sans-serif;
+    --radius: 35px;
+    /* Bubbly, rounded corners */
+    --card-border: 2px solid #fff;
+    --shadow: 0 10px 30px rgba(255, 133, 162, 0.2);
+}
+
+/* --- THEME SPECIFIC STYLES --- */
+
+/**
+ * 1. Cleanup
+ * Disable scanlines from other themes
+ */
+.theme-fairy::before {
+    display: none;
+}
+
+/**
+ * 2. Floating Pixie Dust
+ * Animating radial gradients to simulate floating magical particles
+ */
+.theme-fairy .dynamic-bg {
+    background: radial-gradient(circle at 50% 50%, var(--accent-color) 1%, transparent 1%),
+        radial-gradient(circle at 20% 30%, var(--secondary-color) 1%, transparent 1%),
+        radial-gradient(circle at 80% 70%, var(--primary-color) 1%, transparent 1%);
+    background-size: 100px 100px;
+    opacity: 0.4;
+    animation: floating-dust 20s linear infinite;
+}
+
+@keyframes floating-dust {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 100px 500px;
+    }
+}
+
+/**
+ * 3. Magical Glowing Headline
+ * Large, friendly script font with a floating animation
+ */
+.theme-fairy .main-title {
+    color: var(--primary-color);
+    text-shadow: 2px 2px 0px #fff, 0 0 15px rgba(255, 133, 162, 0.5);
+    font-size: 4.5rem;
+    animation: title-float 3s ease-in-out infinite;
+    text-transform: capitalize;
+}
+
+@keyframes title-float {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(-1deg);
+    }
+
+    50% {
+        transform: translateY(-10px) rotate(1deg);
+    }
+}
+
+/**
+ * 4. Card Interactivity
+ * Soft glassmorphism with a bouncy scale effect on hover
+ */
+.theme-fairy .content-block {
+    backdrop-filter: blur(8px);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.theme-fairy .content-block:hover {
+    transform: scale(1.02) translateY(-5px);
+}
+
+/**
+ * 5. Star Icon Accent
+ * Uses a polygon clip-path to create a magical star shape
+ */
+.theme-fairy .accent-icon {
+    width: 20px;
+    height: 20px;
+    background: var(--accent-color);
+    display: inline-block;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+
+/**
+ * 6. Bubbly Button
+ * A thick-bordered button with a magical gradient base
+ */
+.theme-fairy .cta-button {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    border: 3px solid #fff;
+    box-shadow: 0 5px 15px rgba(255, 133, 162, 0.4);
+    text-transform: capitalize;
+    letter-spacing: 1px;
+}
+
+.theme-fairy .cta-button:hover {
+    filter: brightness(1.1);
+    box-shadow: 0 8px 20px rgba(116, 192, 252, 0.5);
+}
+
+/**
+ * 7. Navigation Stylings
+ */
+.theme-fairy .theme-nav {
+    border-bottom: 2px dashed var(--primary-color);
+}

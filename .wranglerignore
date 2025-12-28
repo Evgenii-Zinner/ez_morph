@@ -1,0 +1,13 @@
+worker.js
+wrangler.toml
+README.md
+node_modules/
+.git/
+worker/
+.wrangler/
+.agent/
+brain/
+implementation_plan.md
+task.md
+walkthrough.md
+*.js.map

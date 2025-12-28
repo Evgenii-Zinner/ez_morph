@@ -1,0 +1,169 @@
+/**
+ * --- CYBERPUNK THEME (NEON & GRID) ---
+ * A high-contrast, grit-soaked digital aesthetic featuring flickering neons and moving perspective grids.
+ */
+
+.theme-cyberpunk {
+    /* Color Palette */
+    --bg-main: #050308;
+    --bg-card: rgba(20, 15, 25, 0.95);
+    --nav-bg: rgba(5, 3, 8, 0.9);
+    --text-main: #ccc;
+    --primary-color: #bc13fe;
+    /* Neon Purple */
+    --secondary-color: #00f3ff;
+    /* Neon Blue */
+    --accent-color: #00ff41;
+    /* Neon Green */
+    --btn-text: #fff;
+
+    /* Typography & Shape */
+    --font-heading: 'Orbitron', sans-serif;
+    --font-body: 'Chakra Petch', sans-serif;
+    --radius: 0px;
+    --card-border: 1px solid #444;
+    --shadow: 0 0 15px rgba(188, 19, 254, 0.3);
+}
+
+/* --- THEME SPECIFIC STYLES --- */
+
+/**
+ * 1. CRT Scanline Overlay
+ * Fixed overlay providing a nostalgic television/monitor scanline texture
+ */
+.theme-cyberpunk::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+        linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+    background-size: 100% 3px, 3px 100%;
+    pointer-events: none;
+    z-index: 100;
+}
+
+/**
+ * 2. Perspective Grid
+ * A moving vector floor that creates a sense of depth and motion
+ */
+.theme-cyberpunk .dynamic-bg {
+    background-image:
+        linear-gradient(var(--primary-color) 1px, transparent 1px),
+        linear-gradient(90deg, var(--secondary-color) 1px, transparent 1px);
+    background-size: 60px 60px;
+    transform: perspective(500px) rotateX(45deg) scale(2);
+    transform-origin: center top;
+    opacity: 0.15;
+    animation: grid-move 4s linear infinite;
+}
+
+@keyframes grid-move {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 0 60px;
+    }
+}
+
+/**
+ * 3. Neon Flicker Typography
+ * Replaces standard text coloring with glowing, unstable neon effects
+ */
+.theme-cyberpunk .main-title {
+    color: #fff;
+    text-shadow:
+        0 0 5px #fff,
+        0 0 10px #fff,
+        0 0 20px var(--primary-color),
+        0 0 40px var(--primary-color),
+        0 0 80px var(--primary-color);
+    animation: cyber-flicker 3s infinite alternate;
+    letter-spacing: 5px;
+}
+
+.theme-cyberpunk .hero-title {
+    color: var(--secondary-color);
+    opacity: 0.7;
+    text-shadow: 0 0 5px var(--secondary-color);
+}
+
+.theme-cyberpunk .highlight {
+    color: var(--primary-color);
+    text-shadow: 0 0 15px var(--primary-color), 0 0 30px var(--primary-color);
+    animation: cyber-flicker 3s infinite !important;
+}
+
+@keyframes cyber-flicker {
+
+    0%,
+    18%,
+    22%,
+    25%,
+    53%,
+    57%,
+    100% {
+        opacity: 1;
+        text-shadow: 0 0 15px var(--primary-color), 0 0 30px var(--primary-color);
+    }
+
+    20%,
+    24%,
+    55% {
+        opacity: 0.2;
+        text-shadow: none;
+    }
+}
+
+/**
+ * 4. Card Framing
+ * Adds holographic blue corner accents to content blocks
+ */
+.theme-cyberpunk .content-block {
+    position: relative;
+    overflow: hidden;
+}
+
+.theme-cyberpunk .content-block::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    border-top: 3px solid var(--secondary-color);
+    border-right: 3px solid var(--secondary-color);
+}
+
+/**
+ * 5. Button Shape
+ * Angled, techno-industrial cut-out style button
+ */
+.theme-cyberpunk .cta-button {
+    clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%);
+    border: none;
+    transition: background 0.2s, box-shadow 0.3s, transform 0.2s;
+}
+
+.theme-cyberpunk .cta-button:hover {
+    background: var(--secondary-color);
+    box-shadow: 0 0 20px var(--secondary-color);
+    transform: scale(1.05);
+}
+
+/**
+ * 6. Accent Icons
+ * Small glowing indicators
+ */
+.theme-cyberpunk .accent-icon {
+    width: 10px;
+    height: 10px;
+    background: var(--accent-color);
+    display: inline-block;
+    margin-right: 10px;
+    box-shadow: 0 0 10px var(--accent-color);
+}

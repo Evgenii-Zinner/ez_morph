@@ -1,0 +1,158 @@
+/**
+ * --- NATURE THEME (ORGANIC & MISTY) ---
+ * A soft, breathing aesthetic inspired by forest flora and rainy mornings.
+ */
+
+.theme-nature {
+    /* Color Palette */
+    --bg-main: #f0f4f0;
+    /* Soft Mist / Linen */
+    --bg-card: rgba(255, 255, 255, 0.6);
+    --nav-bg: rgba(45, 66, 45, 0.9);
+    --text-main: #2d422d;
+    /* Deep Forest Pine */
+    --primary-color: #5b8c5a;
+    /* Sage Green */
+    --secondary-color: #a67c52;
+    /* Cedar Wood */
+    --accent-color: #e9edc9;
+    /* Spring Bud */
+    --btn-text: #fff;
+
+    /* Typography & Shape */
+    --font-heading: 'Lora', serif;
+    --font-body: 'Montserrat', sans-serif;
+    --radius: 50px 15px 50px 15px;
+    /* Organic, leaf-like shape */
+    --card-border: 1px solid rgba(91, 140, 90, 0.2);
+    --shadow: 0 15px 35px rgba(45, 66, 45, 0.05);
+}
+
+/* --- THEME SPECIFIC STYLES --- */
+
+/**
+ * 1. Cleanup
+ * Disable scanlines from other themes if necessary
+ */
+.theme-nature::before {
+    display: none;
+}
+
+/**
+ * 2. Breathing Forest Background
+ * Soft radial gradients with a slow scale/opacity animation
+ */
+.theme-nature .dynamic-bg {
+    background: radial-gradient(circle at 10% 10%, #e9edc9 0%, transparent 30%),
+        radial-gradient(circle at 90% 90%, #ccd5ae 0%, transparent 30%);
+    background-color: var(--bg-main);
+    animation: nature-breathe 8s ease-in-out infinite alternate;
+}
+
+@keyframes nature-breathe {
+    from {
+        opacity: 0.6;
+        transform: scale(1);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+}
+
+/**
+ * 3. Typography
+ * Elegant serif for the main title with a subtle "leaf sway"
+ */
+.theme-nature .main-title {
+    color: var(--text-main);
+    font-weight: 400;
+    font-style: italic;
+    letter-spacing: -1px;
+    text-transform: capitalize;
+    opacity: 0.9;
+    animation: leaf-sway 4s ease-in-out infinite;
+}
+
+@keyframes leaf-sway {
+
+    0%,
+    100% {
+        transform: rotate(-0.5deg);
+    }
+
+    50% {
+        transform: rotate(0.5deg);
+    }
+}
+
+/**
+ * 4. Organic Card Styling
+ * High blur backdrop for a misty frosted glass look
+ */
+.theme-nature .content-block {
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.8);
+}
+
+.theme-nature .content-block:hover {
+    box-shadow: 0 20px 40px rgba(45, 66, 45, 0.1);
+}
+
+/**
+ * 5. Leaf Icon Accent
+ * Uses mask-like clip-path to create an organic shape
+ */
+.theme-nature .accent-icon {
+    width: 25px;
+    height: 25px;
+    background: var(--primary-color);
+    display: block;
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    border-radius: 50% 0 50% 0;
+}
+
+/**
+ * 6. Pebble Button
+ * A rounded, soft-cornered button with a cedar wood base
+ */
+.theme-nature .cta-button {
+    background: var(--secondary-color);
+    color: #fff;
+    border-radius: 40px;
+    text-transform: capitalize;
+    font-size: 1rem;
+    padding: 12px 40px;
+    box-shadow: 0 4px 15px rgba(166, 124, 82, 0.3);
+}
+
+.theme-nature .cta-button:hover {
+    background: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(91, 140, 90, 0.4);
+}
+
+/**
+ * 7. Navigation & Pills
+ */
+.theme-nature .theme-nav {
+    background: rgba(255, 255, 255, 0.8);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.theme-nature .nav-label {
+    color: var(--secondary-color);
+}
+
+.theme-nature button {
+    border-radius: 20px;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    margin: 2px;
+}
+
+.theme-nature button:hover {
+    background: var(--primary-color);
+    color: #fff;
+}

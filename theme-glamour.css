@@ -1,0 +1,158 @@
+/**
+ * --- LUXURY GLAMOUR THEME (EGGSHELL & GOLD) ---
+ * A premium aesthetic focused on warmth, sharp lines, and gold accents.
+ */
+
+.theme-glamour {
+    /* Color Palette */
+    --bg-main: #f9f5f0;
+    /* Eggshell / Warm Alabaster */
+    --bg-card: #ffffff;
+    /* Pure White */
+    --nav-bg: rgba(249, 245, 240, 0.85);
+    --text-main: #2a241e;
+    /* Deep Bronze-Black */
+    --primary-color: #b8860b;
+    /* Polished Gold */
+    --secondary-color: #8e6d45;
+    /* Deep Champagne */
+    --accent-color: #d4af37;
+    /* Metallic Gold */
+    --btn-text: #ffffff;
+
+    /* Typography & Shape */
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Montserrat', sans-serif;
+    --radius: 0px;
+    /* Sharp, architectural lines */
+    --card-border: 1px solid rgba(184, 134, 11, 0.2);
+    --shadow: 0 15px 45px rgba(184, 134, 11, 0.1);
+}
+
+/* --- THEME SPECIFIC STYLES --- */
+
+/**
+ * 1. Background Effect
+ * Dual radial gradient for a silk-like texture
+ */
+.theme-glamour .dynamic-bg {
+    background: radial-gradient(circle at 50% -20%, #ffffff 0%, transparent 50%),
+        radial-gradient(circle at 0% 100%, #f0ece2 0%, transparent 40%);
+    background-color: var(--bg-main);
+}
+
+/**
+ * 2. Hero Typography
+ * Italian-inspired serif style for titles
+ */
+.theme-glamour .hero-title {
+    font-family: var(--font-heading);
+    font-style: italic;
+    font-weight: 300;
+    color: var(--text-main);
+}
+
+.theme-glamour .highlight {
+    font-weight: 900;
+    font-style: normal;
+    background: linear-gradient(to bottom, #d4af37, #8e6d45);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/**
+ * 3. Bento Box Styling
+ * Includes a "Gold Leaf" decorative inner border
+ */
+.theme-glamour .content-block {
+    border: 1px solid rgba(184, 134, 11, 0.15);
+}
+
+.theme-glamour .content-block::before {
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    border: 1px solid rgba(184, 134, 11, 0.1);
+    pointer-events: none;
+}
+
+.theme-glamour .content-block:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 20px 60px rgba(142, 109, 69, 0.15);
+}
+
+/**
+ * 4. Accent Elements
+ * Architectural horizontal line icon
+ */
+.theme-glamour .accent-icon {
+    width: 40px;
+    height: 1px;
+    background: var(--primary-color);
+    display: block;
+}
+
+/**
+ * 5. Button Styling
+ * High-fashion dark contrast button with extreme letter spacing
+ */
+.theme-glamour .cta-button {
+    background: #2a241e;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 0.65rem;
+    padding: 18px 45px;
+    border: 1px solid #2a241e;
+}
+
+.theme-glamour .cta-button:hover {
+    background: var(--primary-color);
+    /* Solid Gold Hover */
+    color: #fff;
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(184, 134, 11, 0.3);
+}
+
+/**
+ * 6. Navigation Pill Overrides
+ */
+.theme-glamour .theme-switcher-pill {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid var(--primary-color);
+    box-shadow: 0 10px 30px rgba(142, 109, 69, 0.1);
+}
+
+.theme-glamour .pill-label {
+    color: var(--primary-color);
+    font-style: italic;
+    border-right-color: rgba(184, 134, 11, 0.3);
+}
+
+.theme-glamour .pill-buttons button {
+    color: #2a241e;
+}
+
+.theme-glamour .pill-buttons button:hover {
+    background: var(--primary-color);
+    color: #fff;
+}
+
+/**
+ * 7. Footer Stylings
+ */
+.theme-glamour .footer-line {
+    width: 100px;
+    background: var(--primary-color);
+    height: 1px;
+    opacity: 0.4;
+}
+
+.theme-glamour .main-footer p {
+    font-family: var(--font-heading);
+    font-style: italic;
+    letter-spacing: 1px;
+}
