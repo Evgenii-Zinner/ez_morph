@@ -33,18 +33,31 @@ EZ-Morph includes a sophisticated yet simple backend logic to handle contact for
    npx wrangler deploy
    ```
 2. **Find Your Chat ID**:
-   We've built a diagnostic tool into the worker. Simply send `/start` to your Telegram bot, and it will reply with your unique Chat ID.
-3. **Set the Webhook**:
+
+   Find your bot and send any message to it
+   Open a webpage
+   ```text
+   https://api.telegram.org/bot<YOUR_BOT_TOKEN>/getUpdates
+   ```
+   In openned Json find a
+   ```Json
+   "chat":{"id":<YOUR_CHAT_ID>
+   ```
+   
+3. **Set Secrets**:
+   
+   ```bash
+   npx wrangler secret put TELEGRAM_BOT_TOKEN
+   npx wrangler secret put TELEGRAM_CHAT_ID
+   ```
+
+4. **Set the Webhook**:
    To enable the `/start` diagnostic tool and receive messages, you must register your worker URL with Telegram (append `/telegram-webhook` to your URL):
    ```text
    https://api.telegram.org/bot<YOUR_BOT_TOKEN>/setWebhook?url=<YOUR_WORKER_URL>/telegram-webhook
    ```
    *(Replace `<YOUR_BOT_TOKEN>` with your token and `<YOUR_WORKER_URL>` with your `.workers.dev` URL)*
-4. **Set Secrets**:
-   ```bash
-   npx wrangler secret put TELEGRAM_BOT_TOKEN
-   npx wrangler secret put TELEGRAM_CHAT_ID
-   ```
+
 
 ---
 
